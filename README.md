@@ -71,11 +71,11 @@ with open("enriched.jsonl", "w") as f:
 
 ## Why This Is Better
 
-**vs Ray** — Ray needs a cluster and actor pool. You still have to write the rate-limit logic and retry loop. You still have to manage the head node.
+**vs Ray** - Ray needs a cluster and actor pool. You still have to write the rate-limit logic and retry loop. You still have to manage the head node.
 
-**vs Dask** — Dask is built for DataFrames, not HTTP fan-out. You end up writing custom `delayed` tasks and a scheduler that doesn't really help with 429 backoff.
+**vs Dask** - Dask is built for DataFrames, not HTTP fan-out. You end up writing custom `delayed` tasks and a scheduler that doesn't really help with 429 backoff.
 
-**vs AWS Batch / Lambda fan-out** — Batch cold starts in minutes per job. Lambda has 15-minute timeouts and per-account concurrency limits you have to raise with a support ticket. Burla starts tasks in seconds and gives you `max_parallelism` as a first-class knob.
+**vs AWS Batch / Lambda fan-out** - Batch cold starts in minutes per job. Lambda has 15-minute timeouts and per-account concurrency limits you have to raise with a support ticket. Burla starts tasks in seconds and gives you `max_parallelism` as a first-class knob.
 
 ## How It Works
 
@@ -90,6 +90,6 @@ You hand Burla a function that takes one chunk of IDs and a list of 2,000 chunks
 
 ## When NOT To Use This
 
-- Sub-second per-request latency requirements — use a proper async client, not a batch map.
-- APIs with strict IP allow-lists — Burla workers come from a cloud IP range you don't control.
-- Single-request jobs — just call `httpx` directly.
+- Sub-second per-request latency requirements - use a proper async client, not a batch map.
+- APIs with strict IP allow-lists - Burla workers come from a cloud IP range you don't control.
+- Single-request jobs - just call `httpx` directly.
