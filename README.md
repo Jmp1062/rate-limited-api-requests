@@ -88,8 +88,3 @@ You hand Burla a function that takes one chunk of IDs and a list of 2,000 chunks
 - Bulk LLM calls where you need per-provider concurrency.
 - Web API scraping when the provider publishes a rate limit.
 
-## When NOT To Use This
-
-- Sub-second per-request latency requirements - use a proper async client, not a batch map.
-- APIs with strict IP allow-lists - Burla workers come from a cloud IP range you don't control.
-- Single-request jobs - just call `httpx` directly.
