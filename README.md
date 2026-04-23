@@ -2,6 +2,12 @@
 
 Fire 2,000,000 HTTP requests against a rate-limited API using 1,000 workers at the same time, with per-worker local rate limits and 429 retry.
 
+## Try it in Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Burla-Cloud/rate-limited-api-requests/blob/main/Burla_RateLimitedAPI_Demo.ipynb)
+
+Follow along in a notebook - fire 1,000 rate-limited HTTP requests across 10 cloud workers in about 3 minutes. No prior Burla knowledge needed.
+
 ## The Problem
 
 You need to hit an API 2 million times: enrich a user list, backfill records, call an LLM, scrape a price feed. The API allows 1,000 requests per second total.
